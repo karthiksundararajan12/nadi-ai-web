@@ -13,6 +13,18 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
+function getHeaderOffset() {
+  return window.innerWidth >= 1024 ? 88 : 72;
+}
+
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const top = el.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -22,6 +34,20 @@ export default function Navigation() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  function handleSectionClick(e, href, closeMobile = false) {
+    if (!href.startsWith('#')) return;
+
+    e.preventDefault();
+    const id = href.slice(1);
+
+    if (closeMobile) {
+      setMobileOpen(false);
+      setTimeout(() => scrollToSection(id), 250);
+    } else {
+      scrollToSection(id);
+    }
+  }
 
   return (
     <motion.header
@@ -61,6 +87,7 @@ export default function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
+                onClick={(e) => handleSectionClick(e, link.href)}
                 className="px-4 py-2 text-sm font-medium text-nadi-muted hover:text-nadi-primary transition-colors rounded-lg hover:bg-nadi-primary/5"
               >
                 {link.label}
@@ -71,6 +98,7 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="#contact"
+              onClick={(e) => handleSectionClick(e, '#contact')}
               className="px-4 py-2 text-sm font-medium text-nadi-primary hover:text-nadi-primary-dark transition-colors"
             >
               Contact Sales
@@ -107,7 +135,7 @@ export default function Navigation() {
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleSectionClick(e, link.href, true)}
                   className="block px-4 py-3 text-base font-medium text-nadi-muted hover:text-nadi-primary hover:bg-nadi-primary/5 rounded-lg transition-colors"
                 >
                   {link.label}
@@ -116,12 +144,14 @@ export default function Navigation() {
               <div className="pt-4 border-t border-nadi-border space-y-2">
                 <a
                   href="#contact"
+                  onClick={(e) => handleSectionClick(e, '#contact', true)}
                   className="block text-center px-4 py-3 text-sm font-medium text-nadi-primary border border-nadi-primary/20 rounded-lg hover:bg-nadi-primary/5 transition-colors"
                 >
                   Contact Sales
                 </a>
                 <a
                   href="/book-demo"
+                  onClick={() => setMobileOpen(false)}
                   className="block text-center px-4 py-3 text-sm font-semibold text-white gradient-primary rounded-lg"
                 >
                   Book Demo

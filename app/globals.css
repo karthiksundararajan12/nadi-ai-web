@@ -69,6 +69,14 @@
   html {
     scroll-behavior: smooth;
   }
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+  @media (min-width: 1024px) {
+    [id] {
+      scroll-margin-top: 6rem;
+    }
+  }
 }
 
 @layer utilities {
