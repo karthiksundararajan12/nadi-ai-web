@@ -1,9 +1,10 @@
 'use client';
 
-import { Activity, Linkedin, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import Image from 'next/image';
+import { Linkedin, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
 const footerLinks = {
-  Product: ['Features', 'Pricing', 'Integrations', 'Security', 'Changelog'],
+  Product: ['Features', 'Patient Journey', 'Integrations', 'Security', 'Changelog'],
   Solutions: ['Solo Practitioners', 'Clinics', 'Hospitals', 'Telehealth', 'RPM'],
   Company: ['About', 'Careers', 'Blog', 'Press', 'Contact'],
   Resources: ['Documentation', 'API Reference', 'Help Center', 'Community', 'Status'],
@@ -28,13 +29,14 @@ export default function Footer() {
         <div className="py-16 lg:py-20">
           <div className="grid lg:grid-cols-6 gap-12 lg:gap-8">
             <div className="lg:col-span-2">
-              <a href="#" className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-nadi-accent flex items-center justify-center">
-                  <Activity className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold tracking-tight">
-                  NADI <span className="text-nadi-accent">AI</span>
-                </span>
+              <a href="#" aria-label="NADI AI home" className="inline-block mb-6">
+                <Image
+                  src="/logo-footer.png"
+                  alt="NADI AI — AI-Powered Clinic OS"
+                  width={1774}
+                  height={887}
+                  className="h-14 sm:h-16 w-auto object-contain object-left"
+                />
               </a>
               <p className="text-sm text-slate-400 leading-relaxed max-w-xs mb-6">
                 The AI Operating System for Modern Clinics. Automate your complete patient journey with intelligent healthcare technology.

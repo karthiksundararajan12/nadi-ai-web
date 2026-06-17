@@ -7,7 +7,7 @@ import FeaturesSection from '../components/FeaturesSection';
 import BenefitsSection from '../components/BenefitsSection';
 import WhyClinicsChooseSection from '../components/WhyClinicsChooseSection';
 import ScreenshotsSection from '../components/ScreenshotsSection';
-import PricingSection from '../components/PricingSection';
+import PatientJourneySection from '../components/PatientJourneySection';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
@@ -25,7 +25,7 @@ export default function Home() {
         <BenefitsSection />
         <WhyClinicsChooseSection />
         <ScreenshotsSection />
-        <PricingSection />
+        <PatientJourneySection />
         <FAQSection />
         <CTASection />
       </main>

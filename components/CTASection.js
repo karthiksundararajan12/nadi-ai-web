@@ -34,7 +34,7 @@ export default function CTASection() {
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="#contact"
+              href="/book-demo"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white border border-white/20 rounded-xl font-semibold text-base hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5"
             >
               <Phone className="w-4 h-4" />

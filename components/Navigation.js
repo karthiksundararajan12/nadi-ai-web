@@ -8,7 +8,7 @@ import { Menu, X } from 'lucide-react';
 const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'Solutions', href: '#solution' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Journey', href: '#patient-journey' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -97,8 +97,7 @@ export default function Navigation() {
 
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="#contact"
-              onClick={(e) => handleSectionClick(e, '#contact')}
+              href="/book-demo"
               className="px-4 py-2 text-sm font-medium text-nadi-primary hover:text-nadi-primary-dark transition-colors"
             >
               Contact Sales
@@ -143,8 +142,8 @@ export default function Navigation() {
               ))}
               <div className="pt-4 border-t border-nadi-border space-y-2">
                 <a
-                  href="#contact"
-                  onClick={(e) => handleSectionClick(e, '#contact', true)}
+                  href="/book-demo"
+                  onClick={() => setMobileOpen(false)}
                   className="block text-center px-4 py-3 text-sm font-medium text-nadi-primary border border-nadi-primary/20 rounded-lg hover:bg-nadi-primary/5 transition-colors"
                 >
                   Contact Sales
