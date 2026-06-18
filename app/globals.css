@@ -104,4 +104,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  .prose-policy strong {
+    @apply text-nadi-text font-semibold;
+  }
+  .prose-policy a {
+    @apply text-violet-600 hover:text-violet-700 underline-offset-2 hover:underline transition-colors;
+  }
 }

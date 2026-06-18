@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -62,8 +63,8 @@ export default function Navigation() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a
-            href="#"
+          <Link
+            href="/"
             aria-label="NADI AI home"
             className="flex h-full min-w-0 max-w-[62vw] sm:max-w-none items-center gap-2.5 sm:gap-3 lg:gap-3.5 shrink-0"
           >
@@ -80,7 +81,7 @@ export default function Navigation() {
             <span className="truncate text-lg sm:text-xl lg:text-[1.75rem] font-bold text-nadi-text tracking-tight leading-none">
               NADI <span className="text-nadi-accent">AI</span>
             </span>
-          </a>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
